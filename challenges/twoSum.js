@@ -6,26 +6,18 @@
 // Explanation: Because nums[0] + nums[1] == 9, we return [0, 1].
 
 const twoSum = (nums, target) => {
-    // should use two pointers here, set left to 0 and right to length
+    // should use two pointers here, set first to 0 and second to 1
     let first = 0
     let second = 1
 
+    // iterate through nums while the two elements don't add to the target
     while (nums[first] + nums[second] !== target) {
-        // if sum is lower, increase left
-        console.log('indices: ' + first, second)
-        console.log('numbers: ' + nums[first], nums[second])
-        console.log('sum: ' + (nums[first] + nums[second]))
+        second++ // every iteration add one to second
 
-        if (nums[first] + nums[second] !== target) {
-            second++
-        }
-
-        if (second >= nums.length - 1) {
-            first++
-            second = first + 1
+        if (second >= nums.length - 1) { // if second is greater than the last element of nums array
+            first++ // add one to first
+            second = first + 1 // restart second at element after first
         }
     }
     return [first, second]
 }
-
-console.log(twoSum([150,24,79,50,88,345,3], 200))
