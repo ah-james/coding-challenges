@@ -21,3 +21,20 @@ const twoSum = (nums, target) => {
     }
     return [first, second]
 }
+
+const twoSumTwo = (nums, target) => {
+    // use an object here
+    const obj = {}
+
+    // loop through nums array
+    for (let i = 0; i < nums.length; i++) {
+        const diff = target - nums[i] // find the difference between target number and the current number being checked from array
+        if (obj[diff] !== undefined) { // if the difference currently exists in the object, return the value of diff in object and current i
+            return [obj[diff], i] // ex. if trying to find 9, 2 checked first, doesn't exist, added to array. 7 checked second, 9-7=2, obj[2] exists with value of 0, returns [0,1]
+        }
+
+        obj[nums[i]] = i // add key: nums element with value: index of element to object
+    }
+};
+
+console.log(twoSumTwo([2, 7, 11, 15], 9))
