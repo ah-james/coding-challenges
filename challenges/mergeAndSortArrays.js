@@ -1,7 +1,10 @@
+// when given 2 ALREADY SORTED arrays, merge the two arrays while maintaining numerical order
+// ex. [1,7,10] and [2,3,8] become [1,2,3,7,8,10]
+
 const mergeSortedArrays = (arr1, arr2) => {
     // error handling, make sure arrays have values
     if (arr1.length === 0 || arr2.length === 0) {
-        return 'make sure arrays are opoulated'
+        return 'make sure arrays are populated'
     }
 
     // set iteration for while loop and empty array to return

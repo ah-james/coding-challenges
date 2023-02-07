@@ -1,3 +1,6 @@
+// take a string of characters and reverse it 
+// ex. 'hello' becomes 'olleh'
+
 const reverse = string => {
     // add error handling
     if (!string || typeof string !== 'string') {
