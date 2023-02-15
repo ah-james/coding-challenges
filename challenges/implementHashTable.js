@@ -15,7 +15,7 @@ class HashTable {
     }
 
     set(key, value) {
-        let address = this.hash(key)
+        let address = this._hash(key)
         if (!this.data[address]) { // check to see if something already exists in current memory space
             this.data[address] = [] // if it doesn't create an empty array, this prevents data from being overwritten if something new is added to same memory space
         }
@@ -36,4 +36,31 @@ class HashTable {
         }
         return undefined
     }
+
+    keys() {
+        // loop through each location in space, push keys into array
+        const returnedArray = []
+
+        for(let i = 0; i < this.data.length; i++) {
+            if (this.data[i] && this.data[i].length) {
+                if (this.data[i].length > 1) {
+                    for (let j = 0; j < this.data[i].length; j++) {
+                        returnedArray.push(this.data[i][j][0])
+                    }
+                } else {
+                    returnedArray.push(this.data[i][0][0])
+                }
+            }
+        }
+        console.log(returnedArray)
+        return returnedArray
+    }
+
 }
+
+const hash = new HashTable(10)
+hash.set('grapes', 10)
+hash.set('oranges', 200)
+hash.set('apples', 3000)
+hash.set('bananas', 40000)
+hash.keys()
