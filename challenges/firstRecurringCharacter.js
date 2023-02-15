@@ -8,10 +8,10 @@ const firstRecurringCharacter = array => {
 
     for (let i = 0; i < array.length; i++) { // loop through array
         if (obj[array[i]]) { // check if array[i] exists in the object
-            return obj[array[i]]
+            return array[i]
         }
         obj[array[i]] = 1 // if array[i] doesn't exist add it to the object
     }
 }
 
-firstRecurringCharacter([2,5,1,2,3,5,1,2,4])
+firstRecurringCharacter([2,5,5,2,3,5,1,2,4])
