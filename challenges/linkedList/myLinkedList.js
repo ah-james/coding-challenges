@@ -16,10 +16,20 @@ class LinkedList {
             next: null
         }
 
-        // make the next value of previous tail into the new node
-        this.tail.next = newNode
-        // now that this.tail.next is reset, this.tail can be changed to the new node
-        this.tail = newNode
+        this.tail.next = newNode // make the next value of previous tail into the new node  
+        this.tail = newNode // now that this.tail.next is reset, this.tail can be changed to the new node
+        this.length++
+        return this
+    }
+
+    prepend(value) {
+        // create a new node
+        const newNode = {
+            value: value,
+            next: this.head // new node should have a next of the rest of the linked list
+        }
+
+        this.head = newNode
         this.length++
         return this
     }
@@ -28,5 +38,6 @@ class LinkedList {
 const myLinkedList = new LinkedList(10)
 myLinkedList.append(5)
 myLinkedList.append(16)
+myLinkedList.prepend(1)
 
 console.log(myLinkedList)
