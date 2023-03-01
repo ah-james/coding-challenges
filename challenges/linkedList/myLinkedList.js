@@ -73,6 +73,16 @@ class LinkedList {
         }
         return currentNode
     }
+
+    remove(index) {
+        // take in given index and remove the node from that spot
+        const nodeToDelete = this.traverseToIndex(index) // use traverseToIndex to find the node that needs to be removed
+        const nextNode = nodeToDelete.next
+        nodeToDelete.next = nextNode.next
+        nodeToDelete.value = nextNode.value
+        this.length--
+        return this.printList()
+    }
 }
 
 const myLinkedList = new LinkedList(10)
@@ -81,5 +91,6 @@ myLinkedList.append(16)
 myLinkedList.prepend(1)
 myLinkedList.insert(2, 100)
 console.log(myLinkedList.printList())
-
+myLinkedList.remove(2)
+console.log(myLinkedList.printList())
 console.log(myLinkedList)
