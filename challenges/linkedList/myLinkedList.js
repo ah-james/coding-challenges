@@ -1,7 +1,15 @@
 class Node {
     constructor(value) {
         this.value = value,
-            this.next = null
+        this.next = null
+    }
+}
+
+class DoubleNode {
+    constructor(value) {
+        this.value = value,
+        this.next = null,
+        this.previous = null
     }
 }
 
@@ -85,12 +93,35 @@ class LinkedList {
     }
 }
 
-const myLinkedList = new LinkedList(10)
+class DoublyLinkedList {
+    constructor(value) {
+        this.head = {
+            value: value,
+            previous: null,
+            next: null
+        }
+        this.tail = this.head
+        this.length = 1
+    }
+
+    append(value) {
+        const newNode = new DoubleNode(value) // create a new node
+
+        this.tail.next = newNode // make the next value of previous tail into the new node  
+        this.tail = newNode // now that this.tail.next is reset, this.tail can be changed to the new node
+        this.tail.previous = this.head
+        this.length++
+        return this
+    }
+}
+
+// const myLinkedList = new LinkedList(10)
+const myLinkedList = new DoublyLinkedList(10)
 myLinkedList.append(5)
 myLinkedList.append(16)
-myLinkedList.prepend(1)
-myLinkedList.insert(2, 100)
-console.log(myLinkedList.printList())
-myLinkedList.remove(2)
-console.log(myLinkedList.printList())
+// myLinkedList.prepend(1)
+// myLinkedList.insert(2, 100)
+// console.log(myLinkedList.printList())
+// myLinkedList.remove(2)
+// console.log(myLinkedList.printList())
 console.log(myLinkedList)
