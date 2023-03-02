@@ -113,6 +113,18 @@ class DoublyLinkedList {
         this.length++
         return this
     }
+
+    printList() {
+        const nextArray = []
+        const prevArray = []
+        let currentNode = this.head
+        while (currentNode !== null) {
+            nextArray.push(currentNode.value)
+            prevArray.unshift(currentNode.value)
+            currentNode = currentNode.next
+        }
+        return `next: ${nextArray} previous: ${prevArray}`
+    }
 }
 
 // const myLinkedList = new LinkedList(10)
@@ -121,7 +133,7 @@ myLinkedList.append(5)
 myLinkedList.append(16)
 // myLinkedList.prepend(1)
 // myLinkedList.insert(2, 100)
-// console.log(myLinkedList.printList())
+console.log(myLinkedList.printList())
 // myLinkedList.remove(2)
 // console.log(myLinkedList.printList())
 console.log(myLinkedList)
