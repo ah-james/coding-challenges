@@ -146,6 +146,17 @@ class DoublyLinkedList {
         return this.printList()
     }
 
+    remove(index) {
+        // take in given index and remove the node from that spot
+        const nodeToDelete = this.traverseToIndex(index) // use traverseToIndex to find the node that needs to be removed
+        const nextNode = nodeToDelete.next
+        nodeToDelete.next = nextNode.next
+        nodeToDelete.previous = nextNode.previous
+        nodeToDelete.value = nextNode.value
+        this.length--
+        return this.printList()
+    }
+
     traverseToIndex(index) {
         let counter = 0
         let currentNode = this.head // start iteration at beginning
@@ -173,7 +184,7 @@ myLinkedList.append(5)
 myLinkedList.append(16)
 myLinkedList.prepend(1)
 myLinkedList.insert(2, 100)
-console.log(myLinkedList.printList())
-// myLinkedList.remove(2)
 // console.log(myLinkedList.printList())
+myLinkedList.remove(2)
+console.log(myLinkedList.printList())
 console.log(myLinkedList)
