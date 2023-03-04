@@ -1,15 +1,15 @@
 class Node {
     constructor(value) {
         this.value = value,
-        this.next = null
+            this.next = null
     }
 }
 
 class DoubleNode {
     constructor(value) {
         this.value = value,
-        this.next = null,
-        this.previous = null
+            this.next = null,
+            this.previous = null
     }
 }
 
@@ -64,7 +64,7 @@ class LinkedList {
 
         const newNode = new Node(value)
 
-        const leader = this.traverseToIndex(index-1) // use helper method to find the node directly before where new node should be entered
+        const leader = this.traverseToIndex(index - 1) // use helper method to find the node directly before where new node should be entered
         const holdingPointer = leader.next // opposite side of where newNode should be inserted
         leader.next = newNode // now that leader.next has been saved as a separate variable, newNode can be inserted and connected to leader
         newNode.next = holdingPointer // to tie newNode to holdingPointer, just make newNode.next from null to holdingPointer
@@ -90,6 +90,23 @@ class LinkedList {
         nodeToDelete.value = nextNode.value
         this.length--
         return this.printList()
+    }
+
+    reverse() {
+        let first = this.head // 1
+        this.tail = this.head
+        let second = first.next // 10
+
+        while(second) {
+            const temp = second.next // 5
+            second.next = first // 5 -> 1
+            first = second // 1 -> 10
+            second = temp //10 -> 5
+        }
+
+        this.head.next = null
+        this.head = first
+        return this
     }
 }
 
@@ -136,7 +153,7 @@ class DoublyLinkedList {
 
         const newNode = new DoubleNode(value)
 
-        const leader = this.traverseToIndex(index-1) // use helper method to find the node directly before where new node should be entered
+        const leader = this.traverseToIndex(index - 1) // use helper method to find the node directly before where new node should be entered
         const holdingPointer = leader.next // opposite side of where newNode should be inserted
         leader.next = newNode // now that leader.next has been saved as a separate variable, newNode can be inserted and connected to leader
         newNode.previous = leader
@@ -179,12 +196,13 @@ class DoublyLinkedList {
 }
 
 // const myLinkedList = new LinkedList(10)
-const myLinkedList = new DoublyLinkedList(10)
+const myLinkedList = new LinkedList(10)
 myLinkedList.append(5)
 myLinkedList.append(16)
 myLinkedList.prepend(1)
 myLinkedList.insert(2, 100)
 // console.log(myLinkedList.printList())
 myLinkedList.remove(2)
+myLinkedList.reverse()
 console.log(myLinkedList.printList())
 console.log(myLinkedList)
