@@ -30,6 +30,12 @@ class Queue {
     }
 
     dequeue() {
+        if (!this.first) {
+            return null
+        }
+        if (this.first === this.last) {
+            this.last = null
+        }
         this.first = this.first.next
         this.length--
         return this
@@ -47,5 +53,7 @@ const myQueue = new Queue()
 myQueue.enqueue('Calvin')
 myQueue.enqueue('Trent')
 myQueue.enqueue('Gabe')
-console.log(myQueue.peek())
+myQueue.dequeue()
+myQueue.dequeue()
+myQueue.dequeue()
 console.log(myQueue)
