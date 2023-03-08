@@ -40,11 +40,6 @@ class BinarySearchTree {
 
     lookup(value) { // returns full node or null
         let tempNode = this.root
-
-        if (tempNode.value === value) {
-            return this.root
-        }
-
         while (tempNode) { // while tempNode isn't null
             if (value < tempNode.value) { // check if value is less than current node's value, if so make tempNode the previous left
                 tempNode = tempNode.left
