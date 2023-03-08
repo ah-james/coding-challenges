@@ -38,8 +38,36 @@ class BinarySearchTree {
         }
     }
 
-    lookup(value) {
-        // returns full node or null
+    lookup(value) { // returns full node or null
+        let tempNode = this.root
+
+        if (tempNode.value === value) {
+            return this.root
+        }
+
+        while (tempNode.value !== value) {
+            if (value > tempNode.value) {
+                if (tempNode.right === null) {
+                    break
+                }
+                tempNode = tempNode.right
+                if (tempNode.value === value) {
+                    return tempNode
+                }
+            } else if (value < tempNode.value) {
+                if (tempNode.right === null) {
+                    break
+                }
+                tempNode = tempNode.left
+                if (tempNode.value === value) {
+                    return tempNode
+                }
+            } else {
+                break
+            }
+        }
+
+        return false
     }
 }
 
@@ -48,4 +76,6 @@ tree.insert(5)
 tree.insert(7)
 tree.insert(1)
 tree.insert(2)
-console.log(tree)
+tree.insert(10)
+tree.insert(6)
+console.log(tree.lookup(11))
