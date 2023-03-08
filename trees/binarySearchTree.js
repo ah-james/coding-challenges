@@ -45,28 +45,15 @@ class BinarySearchTree {
             return this.root
         }
 
-        while (tempNode.value !== value) {
-            if (value > tempNode.value) {
-                if (tempNode.right === null) {
-                    break
-                }
-                tempNode = tempNode.right
-                if (tempNode.value === value) {
-                    return tempNode
-                }
-            } else if (value < tempNode.value) {
-                if (tempNode.right === null) {
-                    break
-                }
+        while (tempNode) { // while tempNode isn't null
+            if (value < tempNode.value) { // check if value is less than current node's value, if so make tempNode the previous left
                 tempNode = tempNode.left
-                if (tempNode.value === value) {
-                    return tempNode
-                }
-            } else {
-                break
+            } else if (value > tempNode.value) { // check if value is greater than current node's value, if so make tempNode the previous right
+                tempNode = tempNode.right
+            } else if (tempNode.value === value) { // if tempNode value is the same as value return the full node
+                return tempNode
             }
         }
-
         return false
     }
 }
@@ -78,4 +65,4 @@ tree.insert(1)
 tree.insert(2)
 tree.insert(10)
 tree.insert(6)
-console.log(tree.lookup(11))
+console.log(tree.lookup(6))
