@@ -49,7 +49,72 @@ class BinarySearchTree {
                 return tempNode
             }
         }
-        return false
+        return false 
+    }
+
+    remove(value) {
+        if (!this.root) {
+            return false // return false if the tree is empty
+        }
+
+        let currentNode = this.root //change this as search for the removed value goes on
+        let parentNode = null
+
+        while (currentNode) {
+            if (value < currentNode.value) {
+                parentNode = currentNode // moves parentNode to the parent of what the currentNode will be
+                currentNode = currentNode.left // currentNode is now the leftward child (lower) node of parentNode
+            } else if (value > currentNode.value) { // same as above but greater instead of less/right instead of left
+                parentNode = currentNode
+                currentNode = currentNode.right
+            } else if (currentNode.value === value) {
+                if (currentNode.right === null) { // if a right node doesn't exist
+                    if (parentNode === null) { // if we need to update the root node
+                        this.root = currentNode.left
+                    } else {
+                        if (currentNode.value < parentNode.value) { // if parent greater than current node, 
+                            parentNode.left = currentNode.left // make current left child a child of parent
+                        } else if (currentNode.value > parentNode.value) { // if parent less than current
+                            parentNode.right = currentNode.left // make left child a right child of parent
+                        }
+                    }
+                } else if (currentNode.right.left === null) { // right child doesn't have a left child
+                    if (parentNode === null) {
+                        this.root = currentNode.left
+                    } else {
+                        currentNode.right.left  = currentNode.left
+                        if (currentNode.value < parentNode.value) { // if parent > current
+                            parentNode.left = currentNode.right // make right child of the left the parent
+                        } else if (currentNode.value > parentNode.value) { // if parent < current
+                            parentNode.right = currentNode.right // right child a right child of parent
+                        }
+                    } 
+                } else { // right child that has a left child
+                    let leftmost = currentNode.right.left
+                    let leftmostParent = currentNode.right
+                    while (leftmost.left !== null) {
+                        leftmostParent = leftmost
+                        leftmost = leftmost.left
+                    }
+
+                    // Parent's left subtree is now leftmost's right subtree
+                    leftmostParent.left = leftmost.right
+                    leftmost.left = currentNode.left
+                    leftmost.right = currentNode.right
+
+                    if (parentNode === null) {
+                        this.root = leftmost
+                    } else {
+                        if (currentNode.value < parentNode.value) {
+                            parentNode.left = leftmost
+                        } else if (currentNode,value > parentNode.value) {
+                            parentNode.right = leftmost
+                        }
+                    }
+                }
+                return true
+            }
+        }
     }
 }
 
