@@ -10,7 +10,11 @@ class Graph {
     }
 
     addEdge(node1, node2) {
-
+        if (!this.adjacentList[node1] || !this.adjacentList[node2]) {
+            return 'Please enter 2 existing nodes!'
+        }
+        this.adjacentList[node1].push(node2) // the adjacent list for each node will be adjusted to include the other node in the array
+        this.adjacentList[node2].push(node1)
     }
 }
 
