@@ -7,4 +7,13 @@ const findFactorial = (num) => {
     return factorial
 }
 
-console.log(findFactorial(5))
+// console.log(findFactorial(5))
+
+const recursiveFactorial = (num) => {
+    if (num === 2) {
+        return 2
+    }
+    return num * recursiveFactorial(num - 1)
+}
+
+console.log(recursiveFactorial(5))
