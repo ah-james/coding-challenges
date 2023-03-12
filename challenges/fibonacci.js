@@ -4,13 +4,10 @@
 // n = 8 return 21
 
 const fibonacci = num => {
-    if (num === 0) {
-        return 0
+    if (num < 2) {
+        return num
     }
 
-    if (num === 1) {
-        return 1
-    }
     let count = 2
     let fibonacciNumber = 1
     let previousNumber = 0
