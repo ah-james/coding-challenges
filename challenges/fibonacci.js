@@ -24,4 +24,12 @@ const fibonacci = num => {
     return fibonacciNumber
 }
 
-console.log(fibonacci(5))
+const fibonacciRecursive = num => {
+    if (num < 2) {
+        return 1
+    }
+
+    return fibonacciRecursive(n - 2) + fibonacciRecursive(n - 1)
+}
+
+console.log(fibonacciRecursive(5))
