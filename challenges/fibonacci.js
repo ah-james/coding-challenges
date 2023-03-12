@@ -26,10 +26,10 @@ const fibonacci = num => {
 
 const fibonacciRecursive = num => {
     if (num < 2) {
-        return 1
+        return num
     }
 
-    return fibonacciRecursive(n - 2) + fibonacciRecursive(n - 1)
+    return fibonacciRecursive(num - 2) + fibonacciRecursive(num - 1)
 }
 
 console.log(fibonacciRecursive(5))
