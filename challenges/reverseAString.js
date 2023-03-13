@@ -22,3 +22,11 @@ const reverse = string => {
 
 // coward's way out (simpler way)
 const reverseTwo = string => [...string].reverse().join('')
+
+const recursiveReverse = string => {
+  if (string === '') {
+    return ''
+  } else {
+    return recursiveReverse(string.substring(1)) + string.charAt(0)
+  }
+}
