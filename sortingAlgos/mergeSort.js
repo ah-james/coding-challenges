@@ -4,7 +4,7 @@ const mergeSort = array => {
     }
 
     // split array into left and right
-    const half = halved(array)
+    const half = Math.ceil(array.length / 2)
     const left = array.slice(0, half)
     const right = array.slice(half)
 
@@ -12,13 +12,22 @@ const mergeSort = array => {
 }
 
 const merge = (left, right) => {
-    // sort both sides of left and right
-    for (let i = 0; i < left.length; i++) {
+    const result = []
+    let leftIndex = 0
+    let rightIndex = 0
 
+    while (leftIndex < left.length && rightIndex < right.length) {
+        if (left[leftIndex] < right[rightIndex]) {
+            result.push(left[leftIndex])
+            leftIndex++
+        } else {
+            result.push(right[rightIndex])
+            rightIndex++
+        }
     }
-}
 
-const halved = array => Math.ceil(array.length / 2)
+    return result.concat(left.slice(leftIndex)).concat(right.slice(rightIndex))
+}
 
 const numbers = [99, 44, 6, 2, 1, 5, 63, 87]
 mergeSort(numbers)
