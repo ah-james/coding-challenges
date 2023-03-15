@@ -8,17 +8,14 @@ const mergeSort = array => {
     const left = array.slice(0, half)
     const right = array.slice(half)
 
-    const smallerLeft = halved(left)
-    const leftArray = [left.slice(0, smallerLeft), left.slice(smallerLeft)]
-
-    const smallerRight = halved(right)
-    const rightArray = [right.slice(0, smallerRight), right.slice(smallerRight)]
-
-    return merge(mergeSort(leftArray), mergeSort(rightArray))
+    return merge(mergeSort(left), mergeSort(right))
 }
 
 const merge = (left, right) => {
+    // sort both sides of left and right
+    for (let i = 0; i < left.length; i++) {
 
+    }
 }
 
 const halved = array => Math.ceil(array.length / 2)
