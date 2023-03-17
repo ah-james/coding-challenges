@@ -118,7 +118,22 @@ class BinarySearchTree {
     }
 
     breadthFirstSearch() {
+        let currentNode = this.root
+        let list = [] // will be answer, insert node values in order of search
+        let queue = [] // keeps track of current level
+        queue.push(currentNode)
 
+        while(queue.length > 0) {
+            currentNode = queue.shift() // currentNode is first element in queue
+            list.push(currentNode.value)
+            if (currentNode.left) {
+                queue.push(currentNode.left) // adds the leftward child of currentNode to the queue
+            }
+            if (currentNode.right) {
+                queue.push(currentNode.right) // adds right child of currentNode to the queue
+            }
+        }
+        return list
     }
 }
 
