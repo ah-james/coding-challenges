@@ -117,42 +117,30 @@ class BinarySearchTree {
         }
     }
 
-    breadthFirstSearch() {
-        let currentNode = this.root
-        let list = [] // will be answer, insert node values in order of search
-        let queue = [] // keeps track of current level
-        queue.push(currentNode)
-
-        while(queue.length > 0) {
-            currentNode = queue.shift() // currentNode is first element in queue
-            list.push(currentNode.value)
-            if (currentNode.left) {
-                queue.push(currentNode.left) // adds the leftward child of currentNode to the queue
-            }
-            if (currentNode.right) {
-                queue.push(currentNode.right) // adds right child of currentNode to the queue
-            }
-        }
-        return list
+    DFSInOrder() {
+        return traverseInOrder(this.root, [])
     }
 
-    breadthFirstRecursive(queue, list) {
-        if (!queue.length) {
-            return list
-        }
+    DFSPostOrder() {
 
-        let currentNode = this.queue.shift()
-        list.push(currentNode.value)
-        if (currentNode.left) {
-            queue.push(currentNode.left) // adds the leftward child of currentNode to the queue
-        }
-        if (currentNode.right) {
-            queue.push(currentNode.right) // adds right child of currentNode to the queue
-        }
-        return this.breadthFirstRecursive(queue, list)
+    }
+
+    DFSPreOrder() {
+
     }
 }
 
+const traverseInOrder = (node, list) => {
+    console.log(node.value)
+    if (node.left) {
+        traverseInOrder(node.left, list) // if the current node still has values on the left, this moves one level down in the tree
+    }
+    list.push(node.value) // when traversed to the bottom, push the node's value into the list
+    if (node.right) {
+        traverseInOrder(node.right, list) // if the current node still has values on the right, this moves one level down in the tree
+    }
+    return list
+}
 
 const tree = new BinarySearchTree()
 tree.insert(9)
@@ -162,3 +150,4 @@ tree.insert(20)
 tree.insert(170)
 tree.insert(15)
 tree.insert(1)
+tree.DFSInOrder()
