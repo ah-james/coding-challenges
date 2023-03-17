@@ -122,22 +122,33 @@ class BinarySearchTree {
     }
 
     DFSPostOrder() {
-
+        return traversePostOrder(this.root, [])
     }
 
     DFSPreOrder() {
-
+        return traversePreOrder(this.root, [])
     }
 }
 
 const traverseInOrder = (node, list) => {
-    console.log(node.value)
     if (node.left) {
         traverseInOrder(node.left, list) // if the current node still has values on the left, this moves one level down in the tree
     }
     list.push(node.value) // when traversed to the bottom, push the node's value into the list
     if (node.right) {
         traverseInOrder(node.right, list) // if the current node still has values on the right, this moves one level down in the tree
+    }
+    return list
+}
+
+const traversePreOrder = (node, list) => {
+    list.push(node.value) // in preorder the parent is pushed first
+    if (node.left) {
+        traversePreOrder(node.left, list) // if the current node still has values on the left, this moves one level down in the tree
+    }
+    
+    if (node.right) {
+        traversePreOrder(node.right, list) // if the current node still has values on the right, this moves one level down in the tree
     }
     return list
 }
@@ -150,4 +161,4 @@ tree.insert(20)
 tree.insert(170)
 tree.insert(15)
 tree.insert(1)
-tree.DFSInOrder()
+console.log(tree.DFSInOrder())
