@@ -153,6 +153,18 @@ const traversePreOrder = (node, list) => {
     return list
 }
 
+const traversePostOrder = (node, list) => {    
+    if (node.left) {
+        traversePostOrder(node.left, list) // if the current node still has values on the left, this moves one level down in the tree
+    }
+    
+    if (node.right) {
+        traversePostOrder(node.right, list) // if the current node still has values on the right, this moves one level down in the tree
+    }
+    list.push(node.value) // in postorder the last checked is pushed first
+    return list
+}
+
 const tree = new BinarySearchTree()
 tree.insert(9)
 tree.insert(4)
