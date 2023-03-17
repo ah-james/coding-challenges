@@ -1,0 +1,14 @@
+Breadth First Search: good for finding shortest path when nodes are closer, but takes more memory
+Depth First Search: uses less memory, can find if a path exists, but can be very slow
+
+if you know the solution is not far from the root of the tree: BFS
+
+If the tree is very deep and solutions are rare: BFS, since tree is deep each depth will take a long time & since solutions are rare it'll have to check many paths
+
+If the tree is very wide: DFS because BFS will need too much memory (needs to save each node in row)
+
+If solutions are frequent but located deep in the tree: DFS
+
+Determining whether a path exists between two nodes: DFS
+
+Finding the shortest path: BFS
