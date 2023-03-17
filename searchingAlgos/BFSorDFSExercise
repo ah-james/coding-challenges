@@ -12,3 +12,7 @@ If solutions are frequent but located deep in the tree: DFS
 Determining whether a path exists between two nodes: DFS
 
 Finding the shortest path: BFS
+
+Bellman-Ford -- use when negative weights or numbers, but not very efficient
+
+Dijkstra -- faster than Bellman and more efficient, but can't account for negatives
