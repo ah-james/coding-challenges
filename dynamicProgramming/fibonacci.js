@@ -23,6 +23,14 @@ const fibonacciRecursive = () => { // if n = 35 this will take 69 calculations
     }
 }
 
+const fibonacciBottomUp = n => {
+    let answer = [0, 1] // first two values in fibonacci sequence
+    for (let i = 2; i <= n; i++) {
+        answer.push(answer[i - 2] + answer[i - 1]) // push a new value that's the sum of the last two values in array
+    }
+    return answer.pop() // return the last value in array after loop ends
+}
+
 const fibonacci = fibonacciRecursive()
 
 console.log(fibonacci(1))
