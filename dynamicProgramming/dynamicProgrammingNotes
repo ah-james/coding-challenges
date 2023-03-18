@@ -1,0 +1,9 @@
+dynamic programming = divide & conquer + memoization
+use recursion and hashing/memoization to improve efficiency of functions
+
+questions to ask if a problem can use dynamic programming
+
+1. can it be divided into subproblem (can each problem be divided into smaller problems -> smaller problems -> smaller problems)
+2. can the the solution be recusive
+3. are there repetitive subproblems
+4. memoize subproblems
