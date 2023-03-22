@@ -16,15 +16,15 @@ const climbingStairs = n => {
 }
 
 const climbingStairs2 = n => {
-    if (n < 4) return n
+    if (n < 4) return n // 1-3 will all return the same number
 
-    let a = 1; b = 1; fib
+    let a = 1; b = 1; fib // declare all variables
 
-    for (let i = 2; i <= n; i++) {
-        fib = a + b
-        a = b
-        b = fib
+    for (let i = 2; i <= n; i++) { // start at 2
+        fib = a + b // fib variable is equal to the first two variables
+        a = b // to prepare for next loop, set a (first number) equal to b (second number)
+        b = fib // set b equal to fib (since new second number will be the sum of a and b)
     }
 
-    return fib
+    return fib // after loop, the current fibonacci number will be the returned value
 }
