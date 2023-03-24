@@ -7,7 +7,15 @@ const singleNumber = array => {
         if (!obj[array[i]]) {
             obj[array[i]] = 1
         } else {
-            
+            obj[array[i]]++
+        }
+    }
+
+    for (const num in obj) {
+        if (obj[num] === 1) {
+            return num
         }
     }
 }
+
+console.log(singleNumber([1, 2, 2, 3, 3, 4, 4]))
