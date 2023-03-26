@@ -16,3 +16,20 @@ const rotateArray = (nums, k) => {
 
     return nums
 }
+
+const rotateArray2 = (nums, k) => {
+    let returned = []
+    for (let i = 1; i < k + 1; i++) {
+        returned.unshift(nums[nums.length - i])
+        console.log(returned)
+    }
+    
+    for (let i = 0; i < nums.length - k; i++) {
+        returned.push(nums[i])
+        console.log(returned)
+    }
+
+    return returned
+}   
+
+console.log(rotateArray([1,2,3,4,5,6,7], 3))
