@@ -18,6 +18,8 @@ const singleNumber = array => {
     }
 }
 
+// leetcode solution
+
 const singleNumber2 = nums => {
     // use sort method to make sure array is sorted
     nums.sort((a, b) => a - b)
