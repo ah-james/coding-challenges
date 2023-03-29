@@ -30,3 +30,9 @@ const recursiveReverse = string => {
     return recursiveReverse(string.substring(1)) + string.charAt(0)
   }
 }
+
+// leetcode solutions
+
+const reverseString = s => {
+  return s.reverse()
+}
