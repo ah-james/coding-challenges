@@ -36,3 +36,16 @@ const recursiveReverse = string => {
 const reverseString = s => {
   return s.reverse()
 }
+
+const reverseString2 = s => {
+  let left = 0
+  let right = s.length - 1
+
+  while (left <= right) {
+    let temp = s[left] 
+    s[left] = s[right]
+    s[right] = temp
+    left++
+    right--
+  }
+}
