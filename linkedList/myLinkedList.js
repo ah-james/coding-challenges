@@ -1,15 +1,15 @@
 class Node {
     constructor(value) {
         this.value = value,
-            this.next = null
+        this.next = null
     }
 }
 
 class DoubleNode {
     constructor(value) {
         this.value = value,
-            this.next = null,
-            this.previous = null
+        this.next = null,
+        this.previous = null
     }
 }
 
@@ -97,7 +97,7 @@ class LinkedList {
         this.tail = this.head
         let second = first.next // 10
 
-        while(second) {
+        while (second) {
             const temp = second.next // 5
             second.next = first // 5 -> 1
             first = second // 1 -> 10
