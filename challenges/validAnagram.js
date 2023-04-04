@@ -9,20 +9,13 @@ const isAnagram = (s, t) => {
     let obj = {}
 
     for (let i = 0; i < s.length; i++) {
-        if (!obj[s[i]]) {
-            obj[s[i]] = 1
-        } else {
-            obj[s[i]]++
-        }
+        obj[s[i]] = obj[s[i]] + 1 || 1
     }
 
     for (let i = 0; i < t.length; i++) {
-        // if obj contains t[i] then reduce value by 1
-        if (obj[t[i]]) {
-            obj[t[i]]--
-        } else {
-            return false
-        }
+        // if obj doesn't contain t[i] return false
+        if (!obj[t[i]]) return false
+        obj[t[i]]--
     }
 
     return true
