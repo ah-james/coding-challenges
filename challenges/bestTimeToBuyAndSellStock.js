@@ -21,3 +21,20 @@ const maxProfit = prices => {
     }
     return profit
 }
+
+// leetcode: best time to buy and sell stock 2
+// same problem as first, but you can buy and sell multiple times
+
+// since you can buy multiple times, we can just check if i + 1 is greater than i, add that to the profit variable to return
+
+const maxProfitTwo = prices => {
+    let profit = 0 // set return variable
+
+    for (let i = 0; i < prices.length; i++) {
+        if (prices[i + 1] > prices[i]) {
+            profit += prices[i + 1] - prices[i]
+        }
+    }
+
+    return profit
+}
