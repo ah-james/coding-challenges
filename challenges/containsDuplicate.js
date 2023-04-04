@@ -18,11 +18,9 @@ const containsDuplicateTwo = nums => {
     const obj = {} // create empty object
 
     for (let i = 0; i < nums.length; i++) {
-        if (obj[nums[i]] !== undefined) { // if the object has a key of current iteration element of nums, then it has appeared in the array already
-            return true // so return true
-        }
-
+        if (obj[nums[i]]) return true // if the object has a key of current iteration element of nums, then it has appeared in the array already
         obj[nums[i]] = 1 // if the object doesn't have a key, then add it to the object
     }
+    
     return false
 }
