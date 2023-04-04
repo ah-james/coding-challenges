@@ -31,10 +31,11 @@ const maxProfitTwo = prices => {
     let profit = 0 // set return variable
 
     for (let i = 0; i < prices.length; i++) {
-        if (prices[i + 1] > prices[i]) {
+        // faster if you do current < next instead of next > current
+        if (prices[i] < prices[i + 1]) {
             profit += prices[i + 1] - prices[i]
         }
     }
-
-    return profit
+    
+    return prices
 }
