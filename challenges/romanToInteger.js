@@ -1,3 +1,6 @@
+// leetcode problem, Given a roman numeral, convert it to an integer.
+// ex. s = 'III' output 3, s = 'LVIII' output = 58
+
 const numerals = {
     'I': 1,
     'V': 5,
