@@ -12,3 +12,14 @@ const titleToNumber = columnTitle => {
     }
     return returnedNumber
 }
+
+var titleToNumber2 = columnTitle => {
+    let result = 0;
+    for (let val of columnTitle) {
+        // ex if AB
+        // first iteration: (0 * 26) + ('A'.charCodeAt() - 64) or result = 0 + 1
+        // second iteration: (1 * 26) + 'B'.charCodeAt() - 64) or result = 26 + 2 = 28
+        result = (result * 26) + ((val.charCodeAt() - 64));
+    }
+    return result;
+};
