@@ -10,3 +10,20 @@ var missingNumber = function(nums) {
         }
     }
 };
+
+const missingNumber2 = nums => {
+    // create dummy array of array length +1 (for missing number) and fill with -1, since that number won't exist in array
+    let array = Array(nums.length + 1).fill(-1)
+
+    // loop through nums array, add each element to cooresponding index of array replacing -1
+    for (let i = 0; i < nums.length; i++) {
+        array[nums[i]] = nums[i]
+    }
+
+    // loop over array, when array[i] === -1, return index
+    for (let i = 0; i < array.length; i++) {
+        if (array[i] === -1) {
+            return i
+        }
+    }
+}
