@@ -21,6 +21,14 @@ const isAnagram = (s, t) => {
     return true
 }
 
+// easy way out
+const isAnagramSimple = (s, t) => {
+    const sortedS = s.split('').sort().join('')
+    const sortedT = t.split('').sort().join('')
+
+    return sortedS === sortedT
+}
+
 // what if string has punctuation and capitals we want to get rid of?
 const isAnagramTwo = (s, t) => {
     // use regex to get rid of punctuation, .toLowerCase to change capitals
