@@ -32,3 +32,20 @@ const capitalizeTwo = str => {
 
     words.join(' ')
 }
+
+// solution without arrays
+
+const capitalizeThree = str => {
+    const result = str[0].toUpperCase()
+
+    for (let i = 1; i < str.length; i++) {
+        if (str[i - 1] === ' ') {
+            const caps = str[i].toUpperCase()
+            result += caps
+        } else {
+            result += str[i]
+        }
+    }
+
+    return result
+}
