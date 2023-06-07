@@ -20,3 +20,30 @@ const isAnagram = (s, t) => {
 
     return true
 }
+
+// what if string has punctuation and capitals we want to get rid of?
+const isAnagramTwo = (s, t) => {
+    // use regex to get rid of punctuation, .toLowerCase to change capitals
+    const lowerS = s.toLowerCase().replace(/[^a-z]/g, '')
+    const lowerT = t.toLowerCase().replace(/[^a-z]/g, '')
+
+    // create object to push both strings into
+    const obj = {}
+
+    for (let char of lowerS) {
+        obj[char] = obj[char] + 1 || 1
+    }
+
+    for (let char of lowerT) {
+        obj[char] = obj[char] + 1 || 1
+    }
+
+    // loop through the object, since each character should occur once in each string, must be divisible by 2
+    for (let key in obj) {
+        if (obj[key] % 2 !== 0) {
+            return false
+        }
+    }
+
+    return true
+}
