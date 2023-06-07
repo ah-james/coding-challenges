@@ -18,3 +18,17 @@ const capitalize = (str) => {
     
     return joinArray.join(' ')
 }
+
+const capitalizeTwo = str => {
+    const words = []
+    const split = str.split(' ')
+
+    for (let word of split) {
+        // word[0] is first character, word.slice(1) gives rest of the word, starting at index of 1
+        let capitalized = word[0].toUpperCase() + word.slice(1)
+        // push capitalized word onto the end
+        words.push(capitalize)
+    }
+
+    words.join(' ')
+}
