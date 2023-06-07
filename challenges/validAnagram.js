@@ -27,6 +27,19 @@ const isAnagramTwo = (s, t) => {
     const lowerS = s.toLowerCase().replace(/[^a-z]/g, '')
     const lowerT = t.toLowerCase().replace(/[^a-z]/g, '')
 
+    const obj = createObject(lowerS, lowerT)
+
+    // loop through the object, since each character should occur once in each string, must be divisible by 2
+    for (let key in obj) {
+        if (obj[key] % 2 !== 0) {
+            return false
+        }
+    }
+
+    return true
+}
+
+const createObject = (stringA, stringB) => {
     // create object to push both strings into
     const obj = {}
 
@@ -38,12 +51,5 @@ const isAnagramTwo = (s, t) => {
         obj[char] = obj[char] + 1 || 1
     }
 
-    // loop through the object, since each character should occur once in each string, must be divisible by 2
-    for (let key in obj) {
-        if (obj[key] % 2 !== 0) {
-            return false
-        }
-    }
-
-    return true
+    return obj
 }
