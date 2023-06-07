@@ -3,8 +3,8 @@
 
 const maxChar = str => {
     let obj = {}
-    let maxValue
-    let returnedCharacter
+    let maxValue = 0
+    let returnedCharacter = ''
 
     for (const char of str) {
         obj[char] = obj[char] + 1 || 1
