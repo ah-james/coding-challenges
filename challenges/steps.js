@@ -9,7 +9,6 @@
 const steps = n => {
     //   create string variable to log and variable to count length of string
     let string = ''
-    let length = 0
 
     // loop
     for (let i = 1; i <= n; i++) {
