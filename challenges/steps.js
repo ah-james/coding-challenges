@@ -26,3 +26,24 @@ const steps = n => {
         string = ''
     }
 }
+
+const stepsRecursive = (n, row = 0, stair = '') => { // need to pass in other variables with defaults to handle recursion
+    if (n === row) { // if current row is the same as the given length return and end the function
+        return
+    }
+
+    if (n === stair.length) { /// if current string is the same length as given n, console log the string and recursive call while adding 1 to row
+        console.log(stair)
+        return steps(n, row++)
+    }
+
+    // actually add the characters to string here
+    if (stair.length <= row) {
+        stair += '#'
+    } else {
+        stair += ' '
+    }
+
+    // recursive call
+    steps(n, row, stair)
+}
